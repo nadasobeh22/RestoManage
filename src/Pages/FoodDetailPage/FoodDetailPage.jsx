@@ -165,10 +165,6 @@ const FoodDetailPage = () => {
                             className="mt-10 lg:mt-0"
                         >
                             <div className="mb-8">
-                                <Link to="/menu" className="text-sm text-orange-500 hover:underline inline-flex items-center gap-2">
-                                                       <FaArrowLeft size={12} />
-                                                       Back to Menu
-                                                   </Link>
                                 <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-2 text-white">{food.food_name}</h1>
                                 <div className="flex items-center gap-4">
                                     <div className="flex text-yellow-400">{renderStars(food.average_rating)}</div>

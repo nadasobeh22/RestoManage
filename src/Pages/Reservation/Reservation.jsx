@@ -190,23 +190,23 @@ const Reservation = () => {
                             <div className="p-6 border-b border-gray-800"><h3 className="text-xl font-bold text-white">Your Bookings</h3></div>
                             <div className="p-2 sm:p-6">
                                 {loading ? <LoadingSkeleton /> : reservations.length === 0 ? <EmptyState /> : (
-                                    // MOBILE IMPROVEMENT: Reduced horizontal padding/margin for more content space on small screens
                                     <div className="relative pl-4 sm:pl-6">
-                                        {/* MOBILE IMPROVEMENT: Adjusted line position to match new padding */}
                                         <div className="absolute left-4 sm:left-6 top-0 bottom-0 w-px bg-gray-700"></div>
                                         <div className="space-y-10">
                                             <AnimatePresence>
                                                 {reservations.map((res) => (
                                                     <motion.div key={res.reservation_id} layout initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }} className="relative">
                                                         <div className="absolute left-0 top-1 w-4 h-4 bg-orange-500 rounded-full border-4 border-neutral-900 transform -translate-x-1/2"></div>
-                                                        {/* MOBILE IMPROVEMENT: Reduced left margin for more content space */}
                                                         <div className="ml-8 sm:ml-10">
-                                                            {/* MOBILE IMPROVEMENT: Stacks items vertically with a gap on small screens for better readability */}
                                                             <div className="flex flex-col sm:flex-row justify-between sm:items-center items-start gap-2 mb-2">
                                                                 <h4 className="font-bold text-lg text-white">Reservation #{res.reservation_id}</h4>
                                                                 <StatusBadge status={res.status} />
                                                             </div>
-                                                            <div className="text-sm text-gray-400 mb-4">{format(parseISO(res.reservation_time), "E, MMM d, yearbook 'at' h:mm a")}</div>
+                                                            {/***************************************************}
+                                                             * سطر الكود الذي تم إصلاحه              *
+                                                             ***************************************************/}
+                                                            <div className="text-sm text-gray-400 mb-4">{format(parseISO(res.reservation_time), "E, MMM d, yyyy 'at' h:mm a")}</div>
+                                                            
                                                             <div className="bg-neutral-800/50 border border-gray-700/50 rounded-lg p-4">
                                                                 <div className="flex items-center gap-4 text-sm"><FaUsers className="text-gray-500" /><span>{res.num_people} Guests</span></div>
                                                                 {res.special_request && <div className="flex items-start gap-4 text-sm mt-3 pt-3 border-t border-gray-700/50"><FaInfoCircle className="text-gray-500 mt-0.5" /><span>{res.special_request}</span></div>}
